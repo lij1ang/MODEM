@@ -331,8 +331,6 @@ class Trainer(AbsIndTrainer):
                 cur_session = cur_session.to(self.device)
                 hist_sessions = hist_sessions.to(self.device)
 
-                #x_item = x_item[:,1].unsqueeze(1)
-                #还需为其他model添加参数与返回值
                 if self.model.get_name() in ['MODEM','MODEM2'] :
                     pred,score1,ll_score, ls_score, ss_score, sl_score, contrast_score\
                     = self.model(x_user, x_item, x_sn, user_hist, hist_len,x_session,session_len,ubr_user_hist,ubr_hist_len,
