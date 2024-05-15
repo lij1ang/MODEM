@@ -1,0 +1,6 @@
+lastfm: {
+  model_name: modem2,
+  embed_dim: 64,
+  dropout: 0.2,
+  use_hist: True,
+}
