@@ -14,7 +14,7 @@ device: 'cuda:0'
 checkpoint_dir: saved_models/ind
 eval_mode: all
 atten_study: False
-list_len: 40
+list_len: 100
 topks: [1,5,10]
 num_trials: 2  
 continue_metric: AUC

@@ -340,7 +340,6 @@ class Trainer(AbsIndTrainer):
                 else:
                     pred,score1 = self.model(x_user, x_item,x_sn, user_hist, hist_len,x_session,session_len,ubr_user_hist,ubr_hist_len)
                 
-                # 暂时加在该逻辑分支，如需修改配置再调整
                 if self.model.get_name() == 'MODEM':
                     # print("\n *** main_loss_input_shape",pred.shape,y.shape)
                     # print("pred_info: ",pred.shape,pred.max(),pred.min(),y.shape)
@@ -480,7 +479,6 @@ class Trainer(AbsIndTrainer):
             ubr_user_hist, ubr_hist_len = None,None
             x_session,session_len = None,None
 
-            # es含义，get_es_hist 和 get_user_hist区别
             if self.model.use_hist:
                 if self.config['have_es']:
                     # user_hist, hist_len = self._get_user_hist(x_user,'test')
@@ -510,8 +508,6 @@ class Trainer(AbsIndTrainer):
             
             y = y.float().to(self.device)
 
-            # 形状
-            # 需要为其他模型都添加相应输入参数
             if self.model.get_name() in ['MODEM','MODEM2']:
                 pred,score1,ll,ls,ss,sl,con= self.model(x_user, x_item,x_sn, user_hist, hist_len, x_session, session_len, ubr_user_hist, ubr_hist_len, cur_session, hist_sessions, hist_sessions_len, hist_sessions_len2)
             else:
